@@ -28,9 +28,9 @@ monitor ExtractorSimulator {
 	boolean highExtractionTemp := false; // used as a gate to decrease the temp;
 	boolean lowExtractionTemp := true; // used as a gate to increase the temp;
 	
-	float caffeineTimeCounter := 0.0;
-	float oilsTimeCounter := 0.0;
-	float acidsTimeCounter := 0.0;
+	float caffeineTimeCounterSecs := 0.0;
+	float oilsTimeCounterSecs := 0.0;
+	float acidsTimeCounterSecs := 0.0;
 	
 	//Side value => Amount of compound (Unit) - A
 	
@@ -54,10 +54,10 @@ monitor ExtractorSimulator {
 	...
 	*/
 	action extractCaffeine(){
-		listener listen := on all wait (Delay.ONE_SECOND){
-			currentCaffeine := blackBodyFormula(caffeineTimeCounter, Caffeine.GRAPH_HEIGHT, Caffeine.GRAPH_LENGTH);  
+		listener listen := on all wait (1.0){
+			currentCaffeine := blackBodyFormula(caffeineTimeCounterSecs, Caffeine.GRAPH_HEIGHT, Caffeine.GRAPH_LENGTH);  
 			send CaffeineEvent(currentCaffeine) to Channel.EXTRACTOR; 
-			caffeineTimeCounter := caffeineTimeCounter + Time.ADD_SECOND;
+			caffeineTimeCounterSecs := caffeineTimeCounterSecs + Time.ADD_SECOND;
 		}
 	}
 
@@ -65,10 +65,10 @@ monitor ExtractorSimulator {
 	...
 	*/
 	action extractVolatileOils(){
-		listener listen := on all wait (Delay.ONE_SECOND){		
-			currentVolatileOils := blackBodyFormula(oilsTimeCounter, VolatileOils.GRAPH_HEIGHT, VolatileOils.GRAPH_LENGTH);	
+		listener listen := on all wait (1.0){		
+			currentVolatileOils := blackBodyFormula(oilsTimeCounterSecs, VolatileOils.GRAPH_HEIGHT, VolatileOils.GRAPH_LENGTH);	
 			send VolatileOilsEvent(currentVolatileOils) to Channel.EXTRACTOR; 
-			oilsTimeCounter := oilsTimeCounter + Time.ADD_SECOND;
+			oilsTimeCounterSecs := oilsTimeCounterSecs + Time.ADD_SECOND;
 		}
 	}
 	
@@ -76,10 +76,10 @@ monitor ExtractorSimulator {
 	...
 	*/	
 	action extractOrganicAcids(){
-		listener listen := on all wait (Delay.ONE_SECOND){
-			currentOrganicAcids := blackBodyFormula(acidsTimeCounter, OrganicAcids.GRAPH_HEIGHT, OrganicAcids.GRAPH_LENGTH); 
+		listener listen := on all wait (1.0){
+			currentOrganicAcids := blackBodyFormula(acidsTimeCounterSecs, OrganicAcids.GRAPH_HEIGHT, OrganicAcids.GRAPH_LENGTH); 
 			send OrganicAcidsEvent(currentOrganicAcids) to Channel.EXTRACTOR; 
-			acidsTimeCounter := acidsTimeCounter + Time.ADD_SECOND;
+			acidsTimeCounterSecs := acidsTimeCounterSecs + Time.ADD_SECOND;
 		}
 	}
 	
@@ -88,7 +88,7 @@ monitor ExtractorSimulator {
 		
 	*/
 	action implementExtractorTemp(){
-		listener listen := on all wait (Delay.TWO_SECONDS){
+		listener listen := on all wait (2.0){
 			float randomTempIncrementor := (2.0).rand(); // TODO FIX MAGIC NUMBER;
 			currentTemp := currentTemp + randomTempIncrementor;
 			send ExtractorTemperature(currentTemp) to Channel.EXTRACTOR; 

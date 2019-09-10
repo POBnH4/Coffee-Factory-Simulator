@@ -41,7 +41,7 @@ event FreezerTemp{
 	constant float RANDOM_FLUCTUATION_NUMBER := 1.5;
 }
 
-event FreezerDryer{ //TODO change name;
+event FreezerDryer{
 	constant float RANDOM_FLUCTUATION_NUMBER := 1.9;
 	constant float MINIMUM_MOISTURE := 0.0;
 }
@@ -65,6 +65,8 @@ event UserStatus{
 	constant string FREEZER_TEMP := "freezerTemp";
 	
 	constant string MOISTURE := "moisture";
+	constant string VACUUM := "vacuum";
+	constant string FREEZER_DRYER_TEMP := "freezerDryerTemp";
 }
 
 event Channel{
@@ -72,6 +74,12 @@ event Channel{
 	constant string EXTRACTOR := "extractorChannel";
 	constant string FREEZE := "freezeChannel";
 	constant string FREEZE_DRYER := "freezeDryerChannel";
+	
+	constant string ROAST_SIMULATOR := "roastSimulatorChannel";
+	constant string EXTRACTOR_SIMULATOR := "extractorSimulatorChannel";
+    constant string FREEZER_SIMULATOR := "freezeSimulatorChannel";
+    constant string FREEZE_DRYER_SIMULATOR := "freezeDryerSimulatorChannel";
+
 }
 
 event Caffeine{
@@ -111,12 +119,6 @@ event Time{
 event ExtractionBounds{ // bounds within the graph
 	constant float MAXIMUM := 110.0;
 	constant float MINIMUM := 0.0;
-}
-
-event Delay{
-	constant float ONE_SECOND := 1.0;
-	constant float TWO_SECONDS := 2.0;
-	constant float THREE_SECONDS := 3.0;
 }
 
 event Temperature{

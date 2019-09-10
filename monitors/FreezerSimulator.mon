@@ -17,7 +17,7 @@ monitor FreezerSimulator {
 	}
 	
 	action freeze(){
-		listener listen := on all wait (Delay.THREE_SECONDS){
+		listener listen := on all wait (3.0){
 			float randomTemp := getRandomTemp();	
 			currentFreezerTemp := (currentFreezerTemp + randomTemp);
 			send FreezerTemperature(currentFreezerTemp) to Channel.FREEZE;

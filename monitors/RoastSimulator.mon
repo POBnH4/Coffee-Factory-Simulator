@@ -8,6 +8,7 @@ event DrumTemperature{
 }
 
 /** This monitor is responsible for ...  */
+
 monitor RoastDrumSimulator {
 
 	integer beanIllustrator := 1; //parses the number so the program can display the actual color of the bean in a range from 1 to 100; Where 1 is green and very black is 100;
@@ -40,12 +41,10 @@ monitor RoastDrumSimulator {
 		...
 	*/
 	action heatDrum(){		
-		listener listen := on all wait (Delay.TWO_SECONDS){
+		listener listen := on all wait (2.0){
 			float randomTemp := (BeanRandom.TEMP_INCREMENTER).rand();				
 			currentDrumTemp := (currentDrumTemp + randomTemp);
 			send DrumTemperature(currentDrumTemp) to Channel.ROAST;
-			log "Simulation RoastDrum temp: " + currentDrumTemp.toString() at INFO;
-
 		}
 	}	
 	
@@ -53,14 +52,13 @@ monitor RoastDrumSimulator {
 		....
 	*/
 	action colorTrack(){
-		listener listen := on all wait (Delay.ONE_SECOND){
+		listener listen := on all wait (1.0){
 			float randomVoltIncrease := (BeanTracker.COLOR_CHANGER).rand(); // the beans spin while in the drum, therefore their temperature might differ slightly. Plus, making the graph more realistic;
 			float gate := (BeanRandom.GATE_BOUND).rand();
 			integer beanColorIllustrator := getBeanIllustrator(currentBeanVolt);
 
 			implementBeanVolt(gate, randomVoltIncrease);
 			send ColorTrack(currentBeanVolt) to Channel.ROAST;
-			log "Simulation RoastDrum volt: " + currentBeanVolt.toString() at INFO;
 		}
 	}
 	
