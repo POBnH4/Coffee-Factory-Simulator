@@ -1,0 +1,1027 @@
+VERS 00000001 5
+HEAD 0000132a <?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="/resources/transform.xslt"?><header><componentName>correlator</componentName><version>10.5.0.0.357639</version><build>rel/10.5.0.x@357639</build><buildPlatform>amd64-win</buildPlatform><platform>Windows 10 Enterprise</platform><cputype>GenuineIntel family 6 model 14 stepping 3 Intel(R) Core(TM) i7-6600U CPU @ 2.60GHz</cputype><cpus name="cpus">4.00</cpus><javaEnabled>true</javaEnabled><replayLogMode>inputLog</replayLogMode><args><arg>C:\dev\apama_win_full_latest\Apama\bin\correlator.exe</arg><arg>--config</arg><arg>C:\Users\y508970\workspace105\CoffeeFactoryDataSimulator\config\CorrelatorConfig.yaml</arg><arg>--port</arg><arg>15904</arg><arg>--loglevel</arg><arg>INFO</arg><arg>--name</arg><arg>Apama Designer Correlator for CoffeeFactoryDataSimulator(CoffeeFactoryDataSimulator:defaultCorrelator)</arg><arg>-j</arg><arg>--inputLog</arg><arg>logs/defaultCorrelator_${START_TIME}_${ID}.input.log</arg></args><environment><variable>ALLUSERSPROFILE=C:\ProgramData</variable><variable>APAMA_HOME=C:\dev\apama_win_full_latest\Apama</variable><variable>APAMA_WORK=C:\Users\Public\SoftwareAG\ApamaWork_10.5</variable><variable>APPDATA=C:\Users\y508970\AppData\Roaming</variable><variable>COMMONPROGRAMFILES=C:\Program Files\Common Files</variable><variable>COMMONPROGRAMFILES(X86)=C:\Program Files (x86)\Common Files</variable><variable>COMMONPROGRAMW6432=C:\Program Files\Common Files</variable><variable>COMPUTERNAME=SAG-98V9PF2</variable><variable>COMSPEC=C:\Windows\system32\cmd.exe</variable><variable>DEFLOGDIR=C:\ProgramData\McAfee\Endpoint Security\Logs</variable><variable>DRIVERDATA=C:\Windows\System32\Drivers\DriverData</variable><variable>EMPIRUMSERVER=cukuni02.eur.ad.sag</variable><variable>EMPIRUMSERVICEPARTITION=0</variable><variable>EMPSRVLONG=cukuni02.eur.ad.sag</variable><variable>HOMEDRIVE=C:</variable><variable>HOMEPATH=\Users\y508970</variable><variable>LOCALAPPDATA=C:\Users\y508970\AppData\Local</variable><variable>LOGONSERVER=\\CUKDC85</variable><variable>NUMBER_OF_PROCESSORS=4</variable><variable>ONEDRIVE=C:\Users\y508970\OneDrive - Software AG</variable><variable>ONEDRIVECOMMERCIAL=C:\Users\y508970\OneDrive - Software AG</variable><variable>OS=Windows_NT</variable><variable>PATH=C:\dev\apama_win_full_latest\Apama\..\jvm\jvm\jre\bin\server;C:\dev\apama_win_full_latest\Apama\..\jvm\jvm\jre\bin;C:\dev\apama_win_full_latest\Apama\bin;C:\dev\apama_win_full_latest\Apama\..\common\security\openssl\bin;C:\Users\Public\SoftwareAG\ApamaWork_10.5\lib;C:\dev\apama_win_full_latest\Apama\..\jvm\jvm\jre\bin;C:\dev\apama_win_full_latest\Apama\..\jvm\jvm\jre\bin\server;C:\dev\apama_win_full_latest\Apama\..\UniversalMessaging\cplus\lib\x86_64;C:\dev\apama_win_full_latest\Apama\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\PuTTY\;C:\Program Files\SlikSvn\bin;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\TortoiseSVN\bin;C:\Program Files\TortoiseGit\bin;C:\Users\y508970\AppData\Local\Microsoft\WindowsApps;C:\Users\y508970\AppData\Local\Programs\Git\cmd;C:\Users\y508970\AppData\Local\GitHubDesktop\bin</variable><variable>PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC</variable><variable>PROCESSOR_ARCHITECTURE=AMD64</variable><variable>PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 78 Stepping 3, GenuineIntel</variable><variable>PROCESSOR_LEVEL=6</variable><variable>PROCESSOR_REVISION=4e03</variable><variable>PROGRAMDATA=C:\ProgramData</variable><variable>PROGRAMFILES=C:\Program Files</variable><variable>PROGRAMFILES(X86)=C:\Program Files (x86)</variable><variable>PROGRAMW6432=C:\Program Files</variable><variable>PROMPT=$P$G</variable><variable>PSMODULEPATH=C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules;C:\Program Files\Barracuda\Network Access Client\Modules</variable><variable>PUBLIC=C:\Users\Public</variable><variable>SESSIONNAME=Console</variable><variable>SSL_CERT_FILE=C:\dev\apama_win_full_latest\Apama\..\common\security\openssl\cert.pem</variable><variable>SYSTEMDRIVE=C:</variable><variable>SYSTEMROOT=C:\Windows</variable><variable>TEMP=C:\Users\y508970\AppData\Local\Temp</variable><variable>TMP=C:\Users\y508970\AppData\Local\Temp</variable><variable>USERDNSDOMAIN=EUR.AD.SAG</variable><variable>USERDOMAIN=EUR</variable><variable>USERDOMAIN_ROAMINGPROFILE=EUR</variable><variable>USERNAME=y508970</variable><variable>USERPROFILE=C:\Users\y508970</variable><variable>WINDIR=C:\Windows</variable></environment><version>10.5.0.0.357639</version></header>
+YAML 000004a7 ###############################################################################
+# $Copyright (c) 2016 Software AG, Darmstadt, Germany and/or Software AG USA Inc., Reston, VA, USA, and/or its subsidiaries and/or its affiliates and/or their licensors.$
+# Use, reproduction, transfer, publication or disclosure is prohibited except as specifically provided for in your License Agreement with Software AG
+###############################################################################
+
+#To set the default log file and level for an EPL package, monitor, or event, specify
+# logging details in the eplLogging section of the YAML configuration file.
+#For example:
+#eplLogging:
+#  com.myCompany.Client:
+#    file: apama/Client.log
+#    level: DEBUG
+#  com.myCompany.Internal: { level: ERROR }
+
+
+#See the information on setting log files and log levels in a YAML configuration file in the documentation for more
+# information about the supported options.
+#To enable use of this file when you launch this project from Designer, edit the project's run/launch configuration,
+#open the correlator, and tick the "Configuration" checkbox next to the textbox that names this .yaml file.
+ 00000055 C:\Users\y508970\workspace105\CoffeeFactoryDataSimulator\config\CorrelatorConfig.yaml
+RAND 00000009 382098481
+TIME 00000010 1568045163.563,1
+CONN 0000003c 1533606750805950464:1641110808638980096 from 127.0.0.1:57845
+TIME 0000000e 1568045164.6,1
+MONF 00001379 
+/** This event consists of events full of constants which are used in the RoastDrum.mon file */
+
+event BeanColor{
+	constant integer VERY_LIGHT := 90;
+	constant integer LIGHT := 80;
+	constant integer YELLOW := 70;
+	constant integer BROWN := 60;
+	constant integer VERY_BROWN := 40;
+	constant integer BLACK := 20;
+}
+
+event AlertType{
+	constant integer IMMINENT_FIRE := 1;
+	constant integer FIRST_CRACK := 2;
+	constant integer BROWN_STAGE := 3;
+	constant integer FULL_CITY := 4;
+	constant integer VIENA_COFFEE := 5;
+	constant integer FULL_FRENCH := 6;
+}
+
+event BeanColorVolt{
+	constant float MAXIMUM := 100.0; // = 10Volt DC -> green bean;
+	constant float MINIMUM := 10.0; // = 1Volt DC -> extremely dark black bean;
+}
+
+event BeanTemp{
+	// ALL values below are temperatures in celsius.
+	//The names of the constants represent the color of the beans at the specific temperatures;
+	constant float PALE := 131.0;
+	constant integer LIGHT_BROWN := 198;
+	constant integer MEDIUM_LIGHT_BROWN := 207;
+	constant integer FULL_MEDIUM := 218;
+	constant integer MEDIUM_DARK_BROWN := 223;
+	constant integer DARK_BROWN := 229;
+	constant integer VERY_DARK := 243;
+	
+}
+
+event FreezerTemp{
+	constant float RANDOM_FLUCTUATION_NUMBER := 1.5;
+}
+
+event FreezerDryer{ //TODO change name;
+	constant float RANDOM_FLUCTUATION_NUMBER := 1.9;
+	constant float MINIMUM_MOISTURE := 0.0;
+}
+
+event UserStatus{
+	//The values represent the names of the queries that are passed to Prometheus
+	//from which Grafana request them and uses their data;
+	//Variables below are used in RoastDrum.mon
+	constant string DRUM := "drum";
+	constant string BEAN_COLOR := "beanColor";
+	constant string BEAN_ILLUSTRATOR := "beanIllustrator";
+	constant string ALERT := "alert";
+	
+	//Variables below are used in Extractor.mon
+	constant string CAFFEINE := "caffeine";
+	constant string VOLATILE_OILS := "volatileOils";
+	constant string ORGANIC_ACIDS := "organicAcids";
+	constant string EXTRACTOR_TEMP := "extractorTemp";
+	constant string COFFEE_TO_WATER_RATIO := "coffeeToWater";
+	
+	constant string FREEZER_TEMP := "freezerTemp";
+	
+	constant string MOISTURE := "moisture";
+}
+
+event Channel{
+	constant string ROAST := "roastChannel";
+	constant string EXTRACTOR := "extractorChannel";
+	constant string FREEZE := "freezeChannel";
+	constant string FREEZE_DRYER := "freezeDryerChannel";
+}
+
+event Caffeine{
+	// default values used to increase/decrease the height/length of the caffeine graph;
+	constant float GRAPH_HEIGHT := 7.7;
+	constant float GRAPH_LENGTH := 0.188;
+}
+
+event VolatileOils{
+	// default values used to increase/decrease the height/length of the volatile oils graph;
+	constant float GRAPH_HEIGHT := 5.19;
+	constant float GRAPH_LENGTH := 0.0415;
+}
+
+event OrganicAcids{
+	// default values used to increase/decrease the height/length of the organic graph;
+	constant float GRAPH_HEIGHT := 3.11;
+	constant float GRAPH_LENGTH := 0.0197;
+}
+
+event Math{
+	constant float CUBED := 3.0;
+	constant float PLANCK_FORMULA_SUBTRACTOR := -1.0; // bl
+}
+
+event Message{
+	constant string LOADED_ROAST_SIMULATOR := "Loaded monitor RoastSimulator";
+	constant string LOADED_EXTRACT_SIMULATOR := "Loaded monitor ExtractorSimulator";
+	constant string LOADED_FREEZER_SIMULATOR := "Loaded monitor FreezerSimulator";
+	constant string LOADED_FREEZE_DRYER_SIMULATOR := "Loaded monitor FreezerDryerSimulator";
+}
+
+event Time{
+	constant float ADD_SECOND := 1.0;
+}
+
+event ExtractionBounds{ // bounds within the graph
+	constant float MAXIMUM := 110.0;
+	constant float MINIMUM := 0.0;
+}
+
+event Delay{
+	constant float ONE_SECOND := 1.0;
+	constant float TWO_SECONDS := 2.0;
+	constant float THREE_SECONDS := 3.0;
+}
+
+event Temperature{
+	constant float PREHEAT_NUMBER := 13.1; //A random number; The random number has to be lower than 20 and higher than 10;
+	constant float DRUM_MINIMUM := 0.0;
+	constant float IMMINENT_FIRE := 258.0; // temperature at which the beans will start going on fire;
+	
+	constant float EXTRACTOR_INITIAL := 140.0; // random number between 130 and 150;
+	//Has to differ from the starting drum temp in RoastDrum because it looks better on Grafana;
+	constant float EXTRACTOR_PREHEAT := 12.1;  //A random number; The random number has to be lower than 20 and higher than 10;
+	
+	constant float FREEZER_MAX := -60.0;
+	constant float FREEZER_MIN := -20.0;
+}
+
+event ColorScheme{
+	constant integer SIZE := 50; // the size of the color scheme graph on Grafana that is displaying the current color of the beans;
+}
+
+event Divider{
+	constant integer BY_HALF := 2;
+}
+
+event BeanTracker{
+	constant float COLOR_CHANGER := 0.9; // 
+	constant float COLOR_GATE_ENTRY := 0.4; // representing the percent (e.g. 0.4 = 40%);
+}
+
+event BeanRandom{
+	constant float TEMP_INCREMENTER := 1.8; // maximum random value;
+	constant float GATE_BOUND := 1.0; // representing the maximum percent value(e.g. 1.0 = 100%, 0.9 = 90%);
+}
+ 00000064 C:\Users\y508970\workspace105\CoffeeFactoryDataSimulator\eventdefinitions\CoffeeFactoryConstants.mon
+MONF 00000ce1 
+/** This monitor is responsible for ...  */
+
+event CaffeineEvent{
+	float currentCaffeine;
+}
+
+event VolatileOilsEvent{
+	float currentVolatileOils;
+}
+
+event OrganicAcidsEvent{
+	float currentOrganicAcids;
+}
+
+event ExtractorTemperature{
+	float currentTemperature;
+}
+
+monitor ExtractorSimulator {
+
+	float currentCaffeine := 1.0;
+	float currentVolatileOils := 3.0;
+	float currentOrganicAcids := 8.0;
+	float currentTemp := preheatExtractor();
+	float currentCoffeeToWaterRatio := 0.0;
+	
+	boolean highExtractionTemp := false; // used as a gate to decrease the temp;
+	boolean lowExtractionTemp := true; // used as a gate to increase the temp;
+	
+	float caffeineTimeCounter := 0.0;
+	float oilsTimeCounter := 0.0;
+	float acidsTimeCounter := 0.0;
+	
+	//Side value => Amount of compound (Unit) - A
+	
+	action onload() {
+		log Message.LOADED_EXTRACT_SIMULATOR at INFO;
+		initialize();
+	}
+
+	action initialize(){
+		implementExtractorTemp();
+		extractAll();
+	}
+
+	action extractAll(){
+		extractCaffeine();
+		extractVolatileOils();
+		extractOrganicAcids();
+	}
+
+	/** 
+	...
+	*/
+	action extractCaffeine(){
+		listener listen := on all wait (Delay.ONE_SECOND){
+			currentCaffeine := blackBodyFormula(caffeineTimeCounter, Caffeine.GRAPH_HEIGHT, Caffeine.GRAPH_LENGTH);  
+			send CaffeineEvent(currentCaffeine) to Channel.EXTRACTOR; 
+			caffeineTimeCounter := caffeineTimeCounter + Time.ADD_SECOND;
+		}
+	}
+
+	/** 
+	...
+	*/
+	action extractVolatileOils(){
+		listener listen := on all wait (Delay.ONE_SECOND){		
+			currentVolatileOils := blackBodyFormula(oilsTimeCounter, VolatileOils.GRAPH_HEIGHT, VolatileOils.GRAPH_LENGTH);	
+			send CaffeineEvent(currentCaffeine) to Channel.EXTRACTOR; 
+			oilsTimeCounter := oilsTimeCounter + Time.ADD_SECOND;
+		}
+	}
+	
+	/** 
+	...
+	*/	
+	action extractOrganicAcids(){
+		listener listen := on all wait (Delay.ONE_SECOND){
+			currentOrganicAcids := blackBodyFormula(acidsTimeCounter, OrganicAcids.GRAPH_HEIGHT, OrganicAcids.GRAPH_LENGTH); 
+			send CaffeineEvent(currentCaffeine) to Channel.EXTRACTOR; 
+			acidsTimeCounter := acidsTimeCounter + Time.ADD_SECOND;
+		}
+	}
+	
+	/** 
+		Increases/decreases the temperature in the extractor drum;
+		
+	*/
+	action implementExtractorTemp(){
+		listener listen := on all wait (Delay.TWO_SECONDS){
+			float randomTempIncrementor := (2.0).rand(); // TODO FIX MAGIC NUMBER;
+			currentTemp := currentTemp + randomTempIncrementor;
+			send ExtractorTemperature(currentTemp) to Channel.EXTRACTOR; 
+		}
+	}
+	
+	/** 
+	@param time = the time that has passed in seconds;
+	@param height = increase value for higher function and decrease for lower; 7.7 is a random default value;
+	@param length = increase to shrink function, decrease to expand function; 0.188 is a random default value;
+	@return Max Planck's formula for Black-body radition
+	*/
+	action blackBodyFormula(float time, float height, float length) returns float{
+		return (height * (length * time).pow(Math.CUBED)) / ( (float.E).pow(length * time) - Math.PLANCK_FORMULA_SUBTRACTOR);
+	}
+	
+	/** 
+	...
+	*/
+	action updateCoffeeToWaterRatio(){	
+		//send ... to ...
+	}
+	
+	action preheatExtractor() returns float{
+		return (Temperature.EXTRACTOR_PREHEAT).rand() + Temperature.EXTRACTOR_INITIAL;
+	}
+	
+}
+ 00000058 C:\Users\y508970\workspace105\CoffeeFactoryDataSimulator\monitors\ExtractorSimulator.mon
+MONF 00000254 
+/** This monitor is responsible for ...  */
+
+event FreezerDryerEvent{
+	float currentMoisture;
+}
+
+monitor FreezeDryerSimulator {
+
+	float currentMoisture := 100.0;
+	
+	action onload() {
+		initialize();
+	}
+
+	action initialize(){
+		log Message.LOADED_FREEZE_DRYER_SIMULATOR at INFO;
+		freezeDry();
+	}
+		
+	action freezeDry(){
+		listener listen := on all wait (Delay.ONE_SECOND){
+			float random := -(FreezerDryer.RANDOM_FLUCTUATION_NUMBER).rand();
+			currentMoisture := currentMoisture + random;
+			send FreezerDryerEvent(currentMoisture) to Channel.FREEZE_DRYER;
+		}
+	}
+}
+ 0000005a C:\Users\y508970\workspace105\CoffeeFactoryDataSimulator\monitors\FreezeDryerSimulator.mon
+MONF 000003d2 
+/** This monitor is responsible for ...  */
+
+event FreezerTemperature{
+	float currentFreezerTemp;
+}
+
+monitor FreezerSimulator {
+	
+	float currentFreezerTemp := -50.0; // default freezer temperature;
+	boolean flag := false; //When using the random variable we either decrease or
+	//increase the current freezer temperature, using this variable we set the turns;
+
+	action onload() {
+		log Message.LOADED_FREEZER_SIMULATOR at INFO;
+		freeze();
+	}
+	
+	action freeze(){
+		listener listen := on all wait (Delay.THREE_SECONDS){
+			float randomTemp := getRandomTemp();	
+			currentFreezerTemp := (currentFreezerTemp + randomTemp);
+			//send ... to ..
+		}
+	}
+	
+	action getRandomTemp() returns float{
+		float randomTemp := (FreezerTemp.RANDOM_FLUCTUATION_NUMBER).rand();
+		// below = take turns adding -> subtracting random values; 
+		if flag {
+			randomTemp := -randomTemp;
+			flag := false;
+		}else{
+			flag := true;
+		}
+		return randomTemp;
+	}
+	
+}
+ 00000056 C:\Users\y508970\workspace105\CoffeeFactoryDataSimulator\monitors\FreezerSimulator.mon
+MONF 00000afb 
+event ColorTrack{
+	float currentBeanVolt;
+}
+
+event DrumTemperature{
+	float currentDrumTemperature;
+}
+
+/** This monitor is responsible for ...  */
+monitor RoastDrumSimulator {
+
+	integer beanIllustrator := 1; //parses the number so the program can display the actual color of the bean in a range from 1 to 100; Where 1 is green and very black is 100;
+	integer currentBeanTemp := 0; // average temp;
+
+	float currentDrumTemp := preheatDrum(); // default temp in drum before roasting is just below 200, e.g. 190;
+	float currentBeanVolt := BeanColorVolt.MAXIMUM; 
+	
+	boolean highRoastTemp := false; // used as a gate to decrease the temp;
+	boolean lowRoastTemp := true; // used as a gate to increase the temp;
+	
+	action onload() {
+		log Message.LOADED_ROAST_SIMULATOR at INFO;
+		initialize();
+	}
+
+	action initialize(){
+			heatDrum();
+			colorTrack();
+	}
+	
+	/** 
+	@return ...
+	*/
+	action preheatDrum() returns float{
+		return (Temperature.PREHEAT_NUMBER).rand() + BeanTemp.PALE;
+	}
+	
+	/** 
+		...
+	*/
+	action heatDrum(){		
+		listener listen := on all wait (Delay.TWO_SECONDS){
+			float randomTemp := (BeanRandom.TEMP_INCREMENTER).rand();				
+			currentDrumTemp := (currentDrumTemp + randomTemp);
+			send DrumTemperature(currentDrumTemp) to Channel.ROAST;
+		}
+	}	
+	
+	/** 
+		....
+	*/
+	action colorTrack(){
+		listener listen := on all wait (Delay.ONE_SECOND){
+			float randomVoltIncrease := (BeanTracker.COLOR_CHANGER).rand(); // the beans spin while in the drum, therefore their temperature might differ slightly. Plus, making the graph more realistic;
+			float gate := (BeanRandom.GATE_BOUND).rand();
+			integer beanColorIllustrator := getBeanIllustrator(currentBeanVolt);
+
+			implementBeanVolt(gate, randomVoltIncrease);
+			send ColorTrack(currentBeanVolt) to Channel.ROAST;
+		}
+	}
+	
+	/** 
+	@param gate ...
+	@param randomVoltIncrease ...
+	*/
+	action implementBeanVolt(float gate, float randomVoltIncrease){
+		if gate <= BeanTracker.COLOR_GATE_ENTRY {
+			currentBeanVolt := currentBeanVolt + randomVoltIncrease;
+		}else{
+			currentBeanVolt := currentBeanVolt - BeanTracker.COLOR_CHANGER; // 0-100 Volts DC; 280 maximum temp in drum -> 280/100 = 2.8; Therefore, 2.8 decrease per degree celsius;
+		}
+	}
+	
+	/** 
+	@param beanVolt ...
+	@return ....
+		formula: the color scheme graph contains half the range the beanvolt has
+		(i.e. BeanVolt starts at 100 and goes down to 0, colorScheme starts at 0 and goes up to 50).
+		Hence, get half of bean volt and remove 50 since the colorScheme operates in the 0-50 range;
+	*/
+	action getBeanIllustrator(float beanVolt) returns integer {
+		return (getHalf(beanVolt) - ColorScheme.SIZE).abs(); 
+	}
+	
+	action getHalf(float value) returns integer{
+		return value.floor() / Divider.BY_HALF;
+	}
+}
+  00000054 C:\Users\y508970\workspace105\CoffeeFactoryDataSimulator\monitors\RoastSimulator.mon
+DISC 0000003c 1533606750805950464:1641110808638980096 from 127.0.0.1:57845
+TIME 0000000e 1568045165.6,1
+TIME 0000000e 1568045166.6,1
+TIME 0000000e 1568045167.6,1
+TIME 0000000e 1568045168.6,1
+TIME 0000000e 1568045169.6,1
+TIME 0000000e 1568045170.6,1
+TIME 0000000e 1568045171.6,1
+TIME 0000000e 1568045172.6,1
+TIME 0000000e 1568045173.6,1
+TIME 0000000e 1568045174.6,1
+TIME 0000000e 1568045175.6,1
+TIME 0000000e 1568045176.6,1
+TIME 0000000e 1568045177.6,1
+TIME 0000000e 1568045178.6,1
+TIME 0000000e 1568045179.6,1
+TIME 0000000e 1568045180.6,1
+TIME 0000000e 1568045181.6,1
+TIME 0000000e 1568045182.6,1
+TIME 0000000e 1568045183.6,1
+TIME 0000000e 1568045184.6,1
+TIME 0000000e 1568045185.6,1
+TIME 0000000e 1568045186.6,1
+TIME 0000000e 1568045187.6,1
+TIME 0000000e 1568045188.6,1
+TIME 0000000e 1568045189.6,1
+TIME 0000000e 1568045190.6,1
+TIME 0000000e 1568045191.6,1
+TIME 0000000e 1568045192.6,1
+TIME 0000000e 1568045193.6,1
+TIME 0000000e 1568045194.6,1
+TIME 0000000e 1568045195.6,1
+TIME 0000000e 1568045196.6,1
+TIME 0000000e 1568045197.6,1
+TIME 0000000e 1568045198.6,1
+TIME 0000000e 1568045199.6,1
+TIME 0000000e 1568045200.6,1
+TIME 0000000e 1568045201.6,1
+TIME 0000000e 1568045202.6,1
+TIME 0000000e 1568045203.6,1
+TIME 0000000e 1568045204.6,1
+TIME 0000000e 1568045205.6,1
+TIME 0000000e 1568045206.6,1
+TIME 0000000e 1568045207.6,1
+TIME 0000000e 1568045208.6,1
+TIME 0000000e 1568045209.6,1
+TIME 0000000e 1568045210.6,1
+TIME 0000000e 1568045211.6,1
+TIME 0000000e 1568045212.6,1
+TIME 0000000e 1568045213.6,1
+TIME 0000000e 1568045214.6,1
+TIME 0000000e 1568045215.6,1
+TIME 0000000e 1568045216.6,1
+TIME 0000000e 1568045217.6,1
+TIME 0000000e 1568045218.6,1
+TIME 0000000e 1568045219.6,1
+TIME 0000000e 1568045220.6,1
+TIME 0000000e 1568045221.6,1
+TIME 0000000e 1568045222.6,1
+TIME 0000000e 1568045223.6,1
+TIME 0000000e 1568045224.6,1
+TIME 0000000e 1568045225.6,1
+TIME 0000000e 1568045226.6,1
+TIME 0000000e 1568045227.6,1
+TIME 0000000e 1568045228.6,1
+TIME 0000000e 1568045229.6,1
+TIME 0000000e 1568045230.6,1
+TIME 0000000e 1568045231.6,1
+TIME 0000000e 1568045232.6,1
+TIME 0000000e 1568045233.6,1
+TIME 0000000e 1568045234.6,1
+TIME 0000000e 1568045235.6,1
+TIME 0000000e 1568045236.6,1
+TIME 0000000e 1568045237.6,1
+TIME 0000000e 1568045238.6,1
+TIME 0000000e 1568045239.6,1
+TIME 0000000e 1568045240.6,1
+TIME 0000000e 1568045241.6,1
+TIME 0000000e 1568045242.6,1
+TIME 0000000e 1568045243.6,1
+TIME 0000000e 1568045244.6,1
+TIME 0000000e 1568045245.6,1
+TIME 0000000e 1568045246.6,1
+TIME 0000000e 1568045247.6,1
+TIME 0000000e 1568045248.6,1
+TIME 0000000e 1568045249.6,1
+TIME 0000000e 1568045250.6,1
+TIME 0000000e 1568045251.6,1
+TIME 0000000e 1568045252.6,1
+TIME 0000000e 1568045253.6,1
+TIME 0000000e 1568045254.6,1
+TIME 0000000e 1568045255.6,1
+TIME 0000000e 1568045256.6,1
+TIME 0000000e 1568045257.6,1
+TIME 0000000e 1568045258.6,1
+TIME 0000000e 1568045259.6,1
+TIME 0000000e 1568045260.6,1
+TIME 0000000e 1568045261.6,1
+TIME 0000000e 1568045262.6,1
+TIME 0000000e 1568045263.6,1
+TIME 0000000e 1568045264.6,1
+TIME 0000000e 1568045265.6,1
+TIME 0000000e 1568045266.6,1
+TIME 0000000e 1568045267.6,1
+TIME 0000000e 1568045268.6,1
+TIME 0000000e 1568045269.6,1
+TIME 0000000e 1568045270.6,1
+TIME 0000000e 1568045271.6,1
+TIME 0000000e 1568045272.6,1
+TIME 0000000e 1568045273.6,1
+TIME 0000000e 1568045274.6,1
+TIME 0000000e 1568045275.6,1
+TIME 0000000e 1568045276.6,1
+TIME 0000000e 1568045277.6,1
+TIME 0000000e 1568045278.6,1
+TIME 0000000e 1568045279.6,1
+TIME 0000000e 1568045280.6,1
+TIME 0000000e 1568045281.6,1
+TIME 0000000e 1568045282.6,1
+TIME 0000000e 1568045283.6,1
+TIME 0000000e 1568045284.6,1
+TIME 0000000e 1568045285.6,1
+TIME 0000000e 1568045286.6,1
+TIME 0000000e 1568045287.6,1
+TIME 0000000e 1568045288.6,1
+TIME 0000000e 1568045289.6,1
+TIME 0000000e 1568045290.6,1
+TIME 0000000e 1568045291.6,1
+TIME 0000000e 1568045292.6,1
+TIME 0000000e 1568045293.6,1
+TIME 0000000e 1568045294.6,1
+TIME 0000000e 1568045295.6,1
+TIME 0000000e 1568045296.6,1
+TIME 0000000e 1568045297.6,1
+TIME 0000000e 1568045298.6,1
+TIME 0000000e 1568045299.6,1
+TIME 0000000e 1568045300.6,1
+TIME 0000000e 1568045301.6,1
+TIME 0000000e 1568045302.6,1
+TIME 0000000e 1568045303.6,1
+TIME 0000000e 1568045304.6,1
+TIME 0000000e 1568045305.6,1
+TIME 0000000e 1568045306.6,1
+TIME 0000000e 1568045307.6,1
+TIME 0000000e 1568045308.6,1
+TIME 0000000e 1568045309.6,1
+TIME 0000000e 1568045310.6,1
+TIME 0000000e 1568045311.6,1
+TIME 0000000e 1568045312.6,1
+TIME 0000000e 1568045313.6,1
+TIME 0000000e 1568045314.6,1
+TIME 0000000e 1568045315.6,1
+TIME 0000000e 1568045316.6,1
+TIME 0000000e 1568045317.6,1
+TIME 0000000e 1568045318.6,1
+TIME 0000000e 1568045319.6,1
+TIME 0000000e 1568045320.6,1
+TIME 0000000e 1568045321.6,1
+TIME 0000000e 1568045322.6,1
+TIME 0000000e 1568045323.6,1
+TIME 0000000e 1568045324.6,1
+TIME 0000000e 1568045325.6,1
+TIME 0000000e 1568045326.6,1
+TIME 0000000e 1568045327.6,1
+TIME 0000000e 1568045328.6,1
+TIME 0000000e 1568045329.6,1
+TIME 0000000e 1568045330.6,1
+TIME 0000000e 1568045331.6,1
+TIME 0000000e 1568045332.6,1
+TIME 0000000e 1568045333.6,1
+TIME 0000000e 1568045334.6,1
+TIME 0000000e 1568045335.6,1
+TIME 0000000e 1568045336.6,1
+TIME 0000000e 1568045337.6,1
+TIME 0000000e 1568045338.6,1
+TIME 0000000e 1568045339.6,1
+TIME 0000000e 1568045340.6,1
+TIME 0000000e 1568045341.6,1
+TIME 0000000e 1568045342.6,1
+TIME 0000000e 1568045343.6,1
+TIME 0000000e 1568045344.6,1
+TIME 0000000e 1568045345.6,1
+TIME 0000000e 1568045346.6,1
+TIME 0000000e 1568045347.6,1
+TIME 0000000e 1568045348.6,1
+TIME 0000000e 1568045349.6,1
+TIME 0000000e 1568045350.6,1
+TIME 0000000e 1568045351.6,1
+TIME 0000000e 1568045352.6,1
+TIME 0000000e 1568045353.6,1
+TIME 0000000e 1568045354.6,1
+TIME 0000000e 1568045355.6,1
+TIME 0000000e 1568045356.6,1
+TIME 0000000e 1568045357.6,1
+TIME 0000000e 1568045358.6,1
+TIME 0000000e 1568045359.6,1
+TIME 0000000e 1568045360.6,1
+TIME 0000000e 1568045361.6,1
+TIME 0000000e 1568045362.6,1
+TIME 0000000e 1568045363.6,1
+TIME 0000000e 1568045364.6,1
+TIME 0000000e 1568045365.6,1
+TIME 0000000e 1568045366.6,1
+TIME 0000000e 1568045367.6,1
+TIME 0000000e 1568045368.6,1
+TIME 0000000e 1568045369.6,1
+TIME 0000000e 1568045370.6,1
+TIME 0000000e 1568045371.6,1
+TIME 0000000e 1568045372.6,1
+TIME 0000000e 1568045373.6,1
+TIME 0000000e 1568045374.6,1
+TIME 0000000e 1568045375.6,1
+TIME 0000000e 1568045376.6,1
+TIME 0000000e 1568045377.6,1
+TIME 0000000e 1568045378.6,1
+TIME 0000000e 1568045379.6,1
+TIME 0000000e 1568045380.6,1
+TIME 0000000e 1568045381.6,1
+TIME 0000000e 1568045382.6,1
+TIME 0000000e 1568045383.6,1
+TIME 0000000e 1568045384.6,1
+TIME 0000000e 1568045385.6,1
+TIME 0000000e 1568045386.6,1
+TIME 0000000e 1568045387.6,1
+TIME 0000000e 1568045388.6,1
+TIME 0000000e 1568045389.6,1
+TIME 0000000e 1568045390.6,1
+TIME 0000000e 1568045391.6,1
+TIME 0000000e 1568045392.6,1
+TIME 0000000e 1568045393.6,1
+TIME 0000000e 1568045394.6,1
+TIME 0000000e 1568045395.6,1
+TIME 0000000e 1568045396.6,1
+TIME 0000000e 1568045397.6,1
+TIME 0000000e 1568045398.6,1
+TIME 0000000e 1568045399.6,1
+TIME 0000000e 1568045400.6,1
+TIME 0000000e 1568045401.6,1
+TIME 0000000e 1568045402.6,1
+TIME 0000000e 1568045403.6,1
+TIME 0000000e 1568045404.6,1
+TIME 0000000e 1568045405.6,1
+TIME 0000000e 1568045406.6,1
+TIME 0000000e 1568045407.6,1
+TIME 0000000e 1568045408.6,1
+TIME 0000000e 1568045409.6,1
+TIME 0000000e 1568045410.6,1
+TIME 0000000e 1568045411.6,1
+TIME 0000000e 1568045412.6,1
+TIME 0000000e 1568045413.6,1
+TIME 0000000e 1568045414.6,1
+TIME 0000000e 1568045415.6,1
+TIME 0000000e 1568045416.6,1
+TIME 0000000e 1568045417.6,1
+TIME 0000000e 1568045418.6,1
+TIME 0000000e 1568045419.6,1
+TIME 0000000e 1568045420.6,1
+TIME 0000000e 1568045421.6,1
+TIME 0000000e 1568045422.6,1
+TIME 0000000e 1568045423.6,1
+TIME 0000000e 1568045424.6,1
+TIME 0000000e 1568045425.6,1
+TIME 0000000e 1568045426.6,1
+TIME 0000000e 1568045427.6,1
+TIME 0000000e 1568045428.6,1
+TIME 0000000e 1568045429.6,1
+TIME 0000000e 1568045430.6,1
+TIME 0000000e 1568045431.6,1
+TIME 0000000e 1568045432.6,1
+TIME 0000000e 1568045433.6,1
+TIME 0000000e 1568045434.6,1
+TIME 0000000e 1568045435.6,1
+TIME 0000000e 1568045436.6,1
+TIME 0000000e 1568045437.6,1
+TIME 0000000e 1568045438.6,1
+TIME 0000000e 1568045439.6,1
+TIME 0000000e 1568045440.6,1
+TIME 0000000e 1568045441.6,1
+TIME 0000000e 1568045442.6,1
+TIME 0000000e 1568045443.6,1
+TIME 0000000e 1568045444.6,1
+TIME 0000000e 1568045445.6,1
+TIME 0000000e 1568045446.6,1
+TIME 0000000e 1568045447.6,1
+TIME 0000000e 1568045448.6,1
+TIME 0000000e 1568045449.6,1
+TIME 0000000e 1568045450.6,1
+TIME 0000000e 1568045451.6,1
+TIME 0000000e 1568045452.6,1
+TIME 0000000e 1568045453.6,1
+TIME 0000000e 1568045454.6,1
+TIME 0000000e 1568045455.6,1
+TIME 0000000e 1568045456.6,1
+TIME 0000000e 1568045457.6,1
+TIME 0000000e 1568045458.6,1
+TIME 0000000e 1568045459.6,1
+TIME 0000000e 1568045460.6,1
+TIME 0000000e 1568045461.6,1
+TIME 0000000e 1568045462.6,1
+TIME 0000000e 1568045463.6,1
+TIME 0000000e 1568045464.6,1
+TIME 0000000e 1568045465.6,1
+TIME 0000000e 1568045466.6,1
+TIME 0000000e 1568045467.6,1
+TIME 0000000e 1568045468.6,1
+TIME 0000000e 1568045469.6,1
+TIME 0000000e 1568045470.6,1
+TIME 0000000e 1568045471.6,1
+TIME 0000000e 1568045472.6,1
+TIME 0000000e 1568045473.6,1
+TIME 0000000e 1568045474.6,1
+TIME 0000000e 1568045475.6,1
+TIME 0000000e 1568045476.6,1
+TIME 0000000e 1568045477.6,1
+TIME 0000000e 1568045478.6,1
+TIME 0000000e 1568045479.6,1
+TIME 0000000e 1568045480.6,1
+TIME 0000000e 1568045481.6,1
+TIME 0000000e 1568045482.6,1
+TIME 0000000e 1568045483.6,1
+TIME 0000000e 1568045484.6,1
+TIME 0000000e 1568045485.6,1
+TIME 0000000e 1568045486.6,1
+TIME 0000000e 1568045487.6,1
+TIME 0000000e 1568045488.6,1
+TIME 0000000e 1568045489.6,1
+TIME 0000000e 1568045490.6,1
+TIME 0000000e 1568045491.6,1
+TIME 0000000e 1568045492.6,1
+TIME 0000000e 1568045493.6,1
+TIME 0000000e 1568045494.6,1
+TIME 0000000e 1568045495.6,1
+TIME 0000000e 1568045496.6,1
+TIME 0000000e 1568045497.6,1
+TIME 0000000e 1568045498.6,1
+TIME 0000000e 1568045499.6,1
+TIME 0000000e 1568045500.6,1
+TIME 0000000e 1568045501.6,1
+TIME 0000000e 1568045502.6,1
+TIME 0000000e 1568045503.6,1
+TIME 0000000e 1568045504.6,1
+TIME 0000000e 1568045505.6,1
+TIME 0000000e 1568045506.6,1
+TIME 0000000e 1568045507.6,1
+TIME 0000000e 1568045508.6,1
+TIME 0000000e 1568045509.6,1
+TIME 0000000e 1568045510.6,1
+TIME 0000000e 1568045511.6,1
+TIME 0000000e 1568045512.6,1
+TIME 0000000e 1568045513.6,1
+TIME 0000000e 1568045514.6,1
+TIME 0000000e 1568045515.6,1
+TIME 0000000e 1568045516.6,1
+TIME 0000000e 1568045517.6,1
+TIME 0000000e 1568045518.6,1
+TIME 0000000e 1568045519.6,1
+TIME 0000000e 1568045520.6,1
+TIME 0000000e 1568045521.6,1
+TIME 0000000e 1568045522.6,1
+TIME 0000000e 1568045523.6,1
+TIME 0000000e 1568045524.6,1
+TIME 0000000e 1568045525.6,1
+TIME 0000000e 1568045526.6,1
+TIME 0000000e 1568045527.6,1
+TIME 0000000e 1568045528.6,1
+TIME 0000000e 1568045529.6,1
+TIME 0000000e 1568045530.6,1
+TIME 0000000e 1568045531.6,1
+TIME 0000000e 1568045532.6,1
+TIME 0000000e 1568045533.6,1
+TIME 0000000e 1568045534.6,1
+TIME 0000000e 1568045535.6,1
+TIME 0000000e 1568045536.6,1
+TIME 0000000e 1568045537.6,1
+TIME 0000000e 1568045538.6,1
+TIME 0000000e 1568045539.6,1
+TIME 0000000e 1568045540.6,1
+TIME 0000000e 1568045541.6,1
+TIME 0000000e 1568045542.6,1
+TIME 0000000e 1568045543.6,1
+TIME 0000000e 1568045544.6,1
+TIME 0000000e 1568045545.6,1
+TIME 0000000e 1568045546.6,1
+TIME 0000000e 1568045547.6,1
+TIME 0000000e 1568045548.6,1
+TIME 0000000e 1568045549.6,1
+TIME 0000000e 1568045550.6,1
+TIME 0000000e 1568045551.6,1
+TIME 0000000e 1568045552.6,1
+TIME 0000000e 1568045553.6,1
+TIME 0000000e 1568045554.6,1
+TIME 0000000e 1568045555.6,1
+TIME 0000000e 1568045556.6,1
+TIME 0000000e 1568045557.6,1
+TIME 0000000e 1568045558.6,1
+TIME 0000000e 1568045559.6,1
+TIME 0000000e 1568045560.6,1
+TIME 0000000e 1568045561.6,1
+TIME 0000000e 1568045562.6,1
+TIME 0000000e 1568045563.6,1
+TIME 0000000e 1568045564.6,1
+TIME 0000000e 1568045565.6,1
+TIME 0000000e 1568045566.6,1
+TIME 0000000e 1568045567.6,1
+TIME 0000000e 1568045568.6,1
+TIME 0000000e 1568045569.6,1
+TIME 0000000e 1568045570.6,1
+TIME 0000000e 1568045571.6,1
+TIME 0000000e 1568045572.6,1
+TIME 0000000e 1568045573.6,1
+TIME 0000000e 1568045574.6,1
+TIME 0000000e 1568045575.6,1
+TIME 0000000e 1568045576.6,1
+TIME 0000000e 1568045577.6,1
+TIME 0000000e 1568045578.6,1
+TIME 0000000e 1568045579.6,1
+TIME 0000000e 1568045580.6,1
+TIME 0000000e 1568045581.6,1
+TIME 0000000e 1568045582.6,1
+TIME 0000000e 1568045583.6,1
+TIME 0000000e 1568045584.6,1
+TIME 0000000e 1568045585.6,1
+TIME 0000000e 1568045586.6,1
+TIME 0000000e 1568045587.6,1
+TIME 0000000e 1568045588.6,1
+TIME 0000000e 1568045589.6,1
+TIME 0000000e 1568045590.6,1
+TIME 0000000e 1568045591.6,1
+TIME 0000000e 1568045592.6,1
+TIME 0000000e 1568045593.6,1
+TIME 0000000e 1568045594.6,1
+TIME 0000000e 1568045595.6,1
+TIME 0000000e 1568045596.6,1
+TIME 0000000e 1568045597.6,1
+TIME 0000000e 1568045598.6,1
+TIME 0000000e 1568045599.6,1
+TIME 0000000e 1568045600.6,1
+TIME 0000000e 1568045601.6,1
+TIME 0000000e 1568045602.6,1
+TIME 0000000e 1568045603.6,1
+TIME 0000000e 1568045604.6,1
+TIME 0000000e 1568045605.6,1
+TIME 0000000e 1568045606.6,1
+TIME 0000000e 1568045607.6,1
+TIME 0000000e 1568045608.6,1
+TIME 0000000e 1568045609.6,1
+TIME 0000000e 1568045610.6,1
+TIME 0000000e 1568045611.6,1
+TIME 0000000e 1568045612.6,1
+TIME 0000000e 1568045613.6,1
+TIME 0000000e 1568045614.6,1
+TIME 0000000e 1568045615.6,1
+TIME 0000000e 1568045616.6,1
+TIME 0000000e 1568045617.6,1
+TIME 0000000e 1568045618.6,1
+TIME 0000000e 1568045619.6,1
+TIME 0000000e 1568045620.6,1
+TIME 0000000e 1568045621.6,1
+TIME 0000000e 1568045622.6,1
+TIME 0000000e 1568045623.6,1
+TIME 0000000e 1568045624.6,1
+TIME 0000000e 1568045625.6,1
+TIME 0000000e 1568045626.6,1
+TIME 0000000e 1568045627.6,1
+TIME 0000000e 1568045628.6,1
+TIME 0000000e 1568045629.6,1
+TIME 0000000e 1568045630.6,1
+TIME 0000000e 1568045631.6,1
+TIME 0000000e 1568045632.6,1
+TIME 0000000e 1568045633.6,1
+TIME 0000000e 1568045634.6,1
+TIME 0000000e 1568045635.6,1
+TIME 0000000e 1568045636.6,1
+TIME 0000000e 1568045637.6,1
+TIME 0000000e 1568045638.6,1
+TIME 0000000e 1568045639.6,1
+TIME 0000000e 1568045640.6,1
+TIME 0000000e 1568045641.6,1
+TIME 0000000e 1568045642.6,1
+TIME 0000000e 1568045643.6,1
+TIME 0000000e 1568045644.6,1
+TIME 0000000e 1568045645.6,1
+TIME 0000000e 1568045646.6,1
+TIME 0000000e 1568045647.6,1
+TIME 0000000e 1568045648.6,1
+TIME 0000000e 1568045649.6,1
+TIME 0000000e 1568045650.6,1
+TIME 0000000e 1568045651.6,1
+TIME 0000000e 1568045652.6,1
+TIME 0000000e 1568045653.6,1
+TIME 0000000e 1568045654.6,1
+TIME 0000000e 1568045655.6,1
+TIME 0000000e 1568045656.6,1
+TIME 0000000e 1568045657.6,1
+TIME 0000000e 1568045658.6,1
+TIME 0000000e 1568045659.6,1
+TIME 0000000e 1568045660.6,1
+TIME 0000000e 1568045661.6,1
+TIME 0000000e 1568045662.6,1
+TIME 0000000e 1568045663.6,1
+TIME 0000000e 1568045664.6,1
+TIME 0000000e 1568045665.6,1
+TIME 0000000e 1568045666.6,1
+TIME 0000000e 1568045667.6,1
+TIME 0000000e 1568045668.6,1
+TIME 0000000e 1568045669.6,1
+TIME 0000000e 1568045670.6,1
+TIME 0000000e 1568045671.6,1
+TIME 0000000e 1568045672.6,1
+TIME 0000000e 1568045673.6,1
+TIME 0000000e 1568045674.6,1
+TIME 0000000e 1568045675.6,1
+TIME 0000000e 1568045676.6,1
+TIME 0000000e 1568045677.6,1
+TIME 0000000e 1568045678.6,1
+TIME 0000000e 1568045679.6,1
+TIME 0000000e 1568045680.6,1
+TIME 0000000e 1568045681.6,1
+TIME 0000000e 1568045682.6,1
+TIME 0000000e 1568045683.6,1
+TIME 0000000e 1568045684.6,1
+TIME 0000000e 1568045685.6,1
+TIME 0000000e 1568045686.6,1
+TIME 0000000e 1568045687.6,1
+TIME 0000000e 1568045688.6,1
+TIME 0000000e 1568045689.6,1
+TIME 0000000e 1568045690.6,1
+TIME 0000000e 1568045691.6,1
+TIME 0000000e 1568045692.6,1
+TIME 0000000e 1568045693.6,1
+TIME 0000000e 1568045694.6,1
+TIME 0000000e 1568045695.6,1
+TIME 0000000e 1568045696.6,1
+TIME 0000000e 1568045697.6,1
+TIME 0000000e 1568045698.6,1
+TIME 0000000e 1568045699.6,1
+TIME 0000000e 1568045700.6,1
+TIME 0000000e 1568045701.6,1
+TIME 0000000e 1568045702.6,1
+TIME 0000000e 1568045703.6,1
+TIME 0000000e 1568045704.6,1
+TIME 0000000e 1568045705.6,1
+TIME 0000000e 1568045706.6,1
+TIME 0000000e 1568045707.6,1
+TIME 0000000e 1568045708.6,1
+TIME 0000000e 1568045709.6,1
+TIME 0000000e 1568045710.6,1
+TIME 0000000e 1568045711.6,1
+TIME 0000000e 1568045712.6,1
+TIME 0000000e 1568045713.6,1
+TIME 0000000e 1568045714.6,1
+TIME 0000000e 1568045715.6,1
+TIME 0000000e 1568045716.6,1
+TIME 0000000e 1568045717.6,1
+TIME 0000000e 1568045718.6,1
+TIME 0000000e 1568045719.6,1
+TIME 0000000e 1568045720.6,1
+TIME 0000000e 1568045721.6,1
+TIME 0000000e 1568045722.6,1
+TIME 0000000e 1568045723.6,1
+TIME 0000000e 1568045724.6,1
+TIME 0000000e 1568045725.6,1
+TIME 0000000e 1568045726.6,1
+TIME 0000000e 1568045727.6,1
+TIME 0000000e 1568045728.6,1
+TIME 0000000e 1568045729.6,1
+TIME 0000000e 1568045730.6,1
+TIME 0000000e 1568045731.6,1

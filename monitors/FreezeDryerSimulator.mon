@@ -1,0 +1,30 @@
+
+/** This monitor is responsible for ...  */
+
+event FreezerDryerEvent{
+	float currentMoisture;
+}
+
+monitor FreezeDryerSimulator {
+
+	float currentMoisture := 100.0;
+	
+	action onload() {
+		initialize();
+	}
+
+	action initialize(){
+		log Message.LOADED_FREEZE_DRYER_SIMULATOR at INFO;
+		freezeDry();
+	}
+		
+	action freezeDry(){
+		listener listen := on all wait (Delay.ONE_SECOND){
+			float random := -(FreezerDryer.RANDOM_FLUCTUATION_NUMBER).rand();
+			currentMoisture := currentMoisture + random;
+			send FreezerDryerEvent(currentMoisture) to Channel.FREEZE_DRYER;
+			log "Simulation FreezerDryer moisture: " + currentMoisture.toString() at INFO;
+
+		}
+	}
+}

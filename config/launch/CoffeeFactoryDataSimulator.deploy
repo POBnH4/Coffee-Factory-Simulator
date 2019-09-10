@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><configuration>
+<intAttribute key="com.apama.text.CONFIG_VERSION" value="3"/>
+<listAttribute key="com.apama.text.COMPONENTS">
+<listEntry>
+
+
+
+
+
+
+
+<component clear="false" correlatorLog="false" correlatorLogLocation="logs/${LAUNCH_CONFIG_NAME}_${CORRELATOR_NAME}.output.log" dataLocationDir="${project_loc:CoffeeFactoryDataSimulator}/database/defaultCorrelator" distMemoryStoreEnabled="false" enabled="false" extraArguments="" hostname="localhost" inputLog="true" inputLogLocation="logs/defaultCorrelator_${START_TIME}_${ID}.input.log" isAutomaticOrdering="true" isPeristanceEnabled="false" javaEnabled="true" jmsResiliencyEnabled="false" logLevel="INFO" maxMBLocalHeap="512" maxMBLocalHeapEnabled="false" maxMBLocalOffHeap="16384" maxMBLocalOffHeapEnabled="false" name="defaultCorrelator" persistenceStartupOption="CLEAR_REINJECT" port="15903" reuse="false" type="CORRELATOR" workingDir="/CoffeeFactoryDataSimulator" xConfigEnabled="true" xConfigLocation="${project_loc:CoffeeFactoryDataSimulator}/config/CorrelatorConfig.yaml">
+<runtimeDependencyEntry enabled="true" path="/CoffeeFactoryDataSimulator/eventdefinitions/CoffeeFactoryConstants.mon" type="PROJECT_MON_FILE"/>
+<runtimeDependencyEntry enabled="true" path="/CoffeeFactoryDataSimulator/monitors/ExtractorSimulator.mon" type="PROJECT_MON_FILE"/>
+<runtimeDependencyEntry enabled="true" path="/CoffeeFactoryDataSimulator/monitors/FreezeDryerSimulator.mon" type="PROJECT_MON_FILE"/>
+<runtimeDependencyEntry enabled="true" path="/CoffeeFactoryDataSimulator/monitors/FreezerSimulator.mon" type="PROJECT_MON_FILE"/>
+<runtimeDependencyEntry enabled="true" path="/CoffeeFactoryDataSimulator/monitors/RoastSimulator.mon" type="PROJECT_MON_FILE"/>
+</component>
+</listEntry>
+<listEntry>
+<component clear="false" correlatorLog="false" correlatorLogLocation="logs/${LAUNCH_CONFIG_NAME}_${CORRELATOR_NAME}.output.log" dataLocationDir="${project_loc:CoffeeFactoryDataSimulator}/database/Correlator2" distMemoryStoreEnabled="false" enabled="true" extraArguments="" hostname="localhost" inputLog="true" inputLogLocation="logs/Correlator2_${START_TIME}_${ID}.input.log" isAutomaticOrdering="true" isPeristanceEnabled="false" javaEnabled="true" jmsResiliencyEnabled="false" logLevel="INFO" maxMBLocalHeap="512" maxMBLocalHeapEnabled="false" maxMBLocalOffHeap="16384" maxMBLocalOffHeapEnabled="false" name="Correlator2" persistenceStartupOption="CLEAR_REINJECT" port="15904" reuse="false" type="CORRELATOR" workingDir="/CoffeeFactoryDataSimulator" xConfigEnabled="true" xConfigLocation="${project_loc:CoffeeFactoryDataSimulator}/config/CorrelatorConfig.yaml">
+<runtimeDependencyEntry enabled="true" path="/CoffeeFactoryDataSimulator/eventdefinitions/CoffeeFactoryConstants.mon" type="PROJECT_MON_FILE"/>
+<runtimeDependencyEntry enabled="true" path="/CoffeeFactoryDataSimulator/monitors/ExtractorSimulator.mon" type="PROJECT_MON_FILE"/>
+<runtimeDependencyEntry enabled="true" path="/CoffeeFactoryDataSimulator/monitors/FreezeDryerSimulator.mon" type="PROJECT_MON_FILE"/>
+<runtimeDependencyEntry enabled="true" path="/CoffeeFactoryDataSimulator/monitors/FreezerSimulator.mon" type="PROJECT_MON_FILE"/>
+<runtimeDependencyEntry enabled="true" path="/CoffeeFactoryDataSimulator/monitors/RoastSimulator.mon" type="PROJECT_MON_FILE"/>
+</component>
+</listEntry>
+</listAttribute>
+<booleanAttribute key="com.apama.text.OPEN_DASHBOARD_ATTR" value="false"/>
+<booleanAttribute key="com.apama.text.OPEN_DEFAULT_DASHBOARD_ATTR" value="true"/>
+<booleanAttribute key="com.apama.text.OPEN_ENABLE_DATAPLAYER_MODE_ATTR" value="false"/>
+<booleanAttribute key="com.apama.text.GENERATE_TIME_EVENTS_ATTR" value="true"/>
+<stringAttribute key="com.apama.text.DASHBOARD_PATH_ATTR" value=""/>
+<stringAttribute key="com.apama.text.DASHBOARD_VIEWER_ARGS" value=""/>
+</configuration>
