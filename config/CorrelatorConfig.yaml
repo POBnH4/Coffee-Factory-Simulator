@@ -23,7 +23,7 @@ engineConnect:
         - freezeDryerSimulatorChannel
 
       mode: parallel
-      disconnectIfSlow: true
+      disconnectIfSlow: false
 
 #See the information on setting log files and log levels in a YAML configuration file in the documentation for more
 # information about the supported options.

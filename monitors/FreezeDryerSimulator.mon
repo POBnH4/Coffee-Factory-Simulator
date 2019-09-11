@@ -14,7 +14,7 @@ event FreezerDryerVacuum{
 }
 
 event Alert{
-	string asd;
+	integer anAlert;
 }
 
 
@@ -24,12 +24,8 @@ monitor FreezeDryerSimulator {
 	float currentTemp := 60.0;
 	float currentVacuum := 150.0;
 		
-	boolean tempGate := false;
-	boolean vacuumGate := false;
-	
 	action onload() {
 		listenning();
-
 		initialize();
 	}
 
@@ -51,6 +47,8 @@ monitor FreezeDryerSimulator {
 	action implementTubeTemperature(){
 		listener listen := on all wait (3.0){
 			float random := (1.0).rand();
+			float tempGate := (1.0).rand();
+
 			currentTemp := implementFluctuation(tempGate, currentTemp, random);
 			send FreezerDryerTemp(currentTemp) to Channel.FREEZE_DRYER;
 		}
@@ -58,31 +56,28 @@ monitor FreezeDryerSimulator {
 	
 	action implementTubeVacuum(){
 		listener listen := on all wait (2.0){
-			float random := (3.0).rand(); 
-			//TODO change gate to be e.g. 0.4 and the random generator to generate a number
-			// between 0.0 and 1.0, see colorTrack()
+			float random := (1.0).rand(); 
+			float vacuumGate := (1.0).rand();
+
 			currentVacuum := implementFluctuation(vacuumGate, currentVacuum, random);
 			send FreezerDryerVacuum(currentVacuum) to Channel.FREEZE_DRYER;
-			log "VACUUM ======== " + currentVacuum.toString() at INFO;
 		}
 	}
 	
-	action implementFluctuation(boolean gate, float currentValue, float randomNumber) returns float{
-		if gate {
+	
+	action implementFluctuation(float gate, float currentValue, float randomNumber) returns float{
+		if gate <= 0.5 {
 			currentValue := currentValue - randomNumber;
-			gate := false;
 		}else{
 			currentValue := currentValue + randomNumber;
-			gate := true;
 		}
-		
 		return currentValue;
 	}
 	
 	action listenning(){
 		monitor.subscribe(Channel.FREEZE_DRYER_SIMULATOR);
 		on all Alert() as a{
-			log "ALERT === ===== === " + a.asd at INFO;
+			log "ALERT === ===== === " + a.anAlert.toString() at INFO;
 		}
 	}
 	

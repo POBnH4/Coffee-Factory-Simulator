@@ -32,6 +32,17 @@ monitor ExtractorSimulator {
 	float oilsTimeCounterSecs := 0.0;
 	float acidsTimeCounterSecs := 0.0;
 	
+	//randomly selected numbers, used to create diversity,
+	//making the graphs always with a different height/length from before;
+	float caffeineGraphHeightRandom := (1.5).rand();
+	float caffeineGraphLengthRandom := (0.030).rand();
+	
+	float oilsGraphHeightRandom := (0.7).rand();
+	float oilsGraphLengthRandom := (0.0090).rand();
+	
+	float acidsGraphHeightRandom := (0.2).rand();
+	float acidsGraphLengthRandom := (0.0027).rand();
+	
 	//Side value => Amount of compound (Unit) - A
 	
 	action onload() {
@@ -55,20 +66,24 @@ monitor ExtractorSimulator {
 	*/
 	action extractCaffeine(){
 		listener listen := on all wait (1.0){
-			currentCaffeine := blackBodyFormula(caffeineTimeCounterSecs, Caffeine.GRAPH_HEIGHT, Caffeine.GRAPH_LENGTH);  
+			currentCaffeine := blackBodyFormula(caffeineTimeCounterSecs, getCaffeineGraphHeight(), getCaffeineGraphLength());  
 			send CaffeineEvent(currentCaffeine) to Channel.EXTRACTOR; 
 			caffeineTimeCounterSecs := caffeineTimeCounterSecs + Time.ADD_SECOND;
+			log "Caffeine ==== " + currentCaffeine.toString() at INFO;
+
 		}
 	}
-
+	
 	/** 
 	...
 	*/
 	action extractVolatileOils(){
 		listener listen := on all wait (1.0){		
-			currentVolatileOils := blackBodyFormula(oilsTimeCounterSecs, VolatileOils.GRAPH_HEIGHT, VolatileOils.GRAPH_LENGTH);	
+			currentVolatileOils := blackBodyFormula(oilsTimeCounterSecs, getVolatileOilsGraphHeight(), getVolatileOilsGraphLength());	
 			send VolatileOilsEvent(currentVolatileOils) to Channel.EXTRACTOR; 
 			oilsTimeCounterSecs := oilsTimeCounterSecs + Time.ADD_SECOND;
+			log "Volatile oils ==== " + currentVolatileOils.toString() at INFO;
+
 		}
 	}
 	
@@ -77,9 +92,10 @@ monitor ExtractorSimulator {
 	*/	
 	action extractOrganicAcids(){
 		listener listen := on all wait (1.0){
-			currentOrganicAcids := blackBodyFormula(acidsTimeCounterSecs, OrganicAcids.GRAPH_HEIGHT, OrganicAcids.GRAPH_LENGTH); 
+			currentOrganicAcids := blackBodyFormula(acidsTimeCounterSecs, getOrganicAcidsGraphHeight(), getOrganicAcidsLenght()); 
 			send OrganicAcidsEvent(currentOrganicAcids) to Channel.EXTRACTOR; 
 			acidsTimeCounterSecs := acidsTimeCounterSecs + Time.ADD_SECOND;
+			log "Organic acids ==== " + currentOrganicAcids.toString() at INFO;
 		}
 	}
 	
@@ -110,6 +126,30 @@ monitor ExtractorSimulator {
 	*/
 	action updateCoffeeToWaterRatio(){	
 		//send ... to ...
+	}
+	
+	action getCaffeineGraphHeight() returns float{
+		return Caffeine.GRAPH_HEIGHT - caffeineGraphHeightRandom; 
+	}
+	
+	action getCaffeineGraphLength() returns float{
+		return Caffeine.GRAPH_LENGTH - caffeineGraphLengthRandom; 
+	}
+	
+	action getVolatileOilsGraphHeight() returns float{
+		return VolatileOils.GRAPH_HEIGHT - oilsGraphHeightRandom; 
+	}
+	
+	action getVolatileOilsGraphLength() returns float{
+		return VolatileOils.GRAPH_LENGTH - oilsGraphLengthRandom; 
+	}
+	
+	action getOrganicAcidsGraphHeight() returns float{
+		return OrganicAcids.GRAPH_HEIGHT - acidsGraphHeightRandom; 
+	}
+	
+	action getOrganicAcidsLenght() returns float{
+		return OrganicAcids.GRAPH_LENGTH - acidsGraphLengthRandom; 
 	}
 	
 	action preheatExtractor() returns float{
